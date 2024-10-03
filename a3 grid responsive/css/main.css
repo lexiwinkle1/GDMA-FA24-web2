@@ -1,0 +1,385 @@
+@charset "UTF-8";
+@import url(normalize.css);
+/*--------------------------------------------------------------
+    TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Settings: used with preprocessors and contain font, colors definitions, etc.
+2.0 - Tools: globally used mixins and functions. Use for preprocessor only.
+3.0 - Generic: reset and/or normalize styles, box-sizing definition, etc. 
+4.0 - Elements: styling for bare/generic HTML elements 
+        - Typography: Typography, Links, Address
+5.0 - Objects: class-based selectors which define undecorated design patterns, building blocks
+        - Framework
+6.0 - Components: specific designed components
+        - Nav
+        - Hero 
+        - Backgrounds & Spacing
+        - Footer 
+7.0 - Utilities: utilities and helper classes with ability to override anything which goes before in the triangle, eg. hide helper class
+        - Screen Reader
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+    3.0 - GENERIC
+-------------------------------------------------------------- */
+/* for some time, universal and html or body selector are all that will appear under here  */ 
+
+
+/* ----- UNIVERSAL ----- */
+
+* {
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html { 
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #394053
+}
+
+/*--------------------------------------------------------------
+    4.0 - ELEMENTS
+    - single (not contextual) element selectors only. No classes. No IDs. No contextual selectors. 
+-------------------------------------------------------------- */
+/* shared styles across elements are grouped at the top, not under an individual elements. Reduces repeated styles */ 
+
+
+/* ----- TYPOGRAPHY ----- */
+h1 {
+    font-size: clamp(2.5rem, 3.2vw + 1.5rem, 3.75rem);
+    line-height: 1.2;
+    margin: 0
+}
+
+h2 {
+    font-size: clamp(2rem, 1.6vw + 1.5rem, 2.625rem);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.txt__magenta {
+    color: #D42C59; 
+}
+
+.txtsize__22 {
+    font-size: 1.375rem;
+    line-height: 1.4;
+}
+
+.txtsize__48 {
+    font-size: 3rem;
+}
+
+.txt__white {
+    color: #fff; 
+}
+
+.font__black {
+    font-weight: 900;
+}
+
+.txt__navy {
+    color: #394053;
+}
+
+.txt__sorbet {
+    color: #FFDDD2
+}
+
+/* ----- LINKS ----- */
+a {
+    text-decoration: none; 
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+footer a, .hero a, .tiramisu a {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* ----- ADDRESS ----- */
+
+
+
+/*--------------------------------------------------------------
+    5.0 - OBJECTS
+-------------------------------------------------------------- */
+/* for some time, only .wrapper and .row are likely to appear under this category */ 
+
+/* ----- FRAMEWORK ----- */
+.wrapper {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 0 40px;
+}
+
+.row {
+    display: flex;
+}
+
+/*--------------------------------------------------------------
+    6.0 - COMPONENTS
+-------------------------------------------------------------- */
+/* shared styles across components are grouped at the top, not under an individual component. Reduces repeated styles */ 
+
+li {
+    list-style-type: none; 
+}
+
+ul {
+    padding: 0; 
+    gap: 40px;
+}
+
+/* hero / footer / nav -- are considered components because they'd repeat on across pages on a multi page site. be careful to not get them in the habit of styling based on the 'content' that appears on the page but rather what components make those up */ 
+
+
+/* ----- NAV ----- */
+nav {
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ----- HERO ----- */
+.hero {
+    text-align: center;
+}
+
+.hero .bg__sorbet {
+    padding: 75px 0 75px 0;
+}
+
+.hero > .wrapper > .bg__sorbet > div {
+    max-width: 690px;
+    margin: 0 auto;
+}
+
+.hero .bg__magenta {
+    max-width: 290px;
+    height: 45px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+/* ----- BACKGROUNDS AND SPACING ----- */
+.bg__sorbet {
+    background-color: #FFDDD2;
+}
+
+.bg__magenta {
+    background-color: #D42C59;
+}
+
+/* ----- FOOTER ----- */
+footer {
+    border-bottom: 16px solid #F2B100;
+}
+
+footer > .wrapper > .row {
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer > .wrapper > .row > div:last-of-type > div {
+    margin-bottom: 10px;
+}
+
+footer .box.bg__sorbet {
+    padding: 10px 0 0 80px;
+}
+
+footer .bg__sorbet > a {
+    padding-right: 60px;
+}
+
+.circlerow {
+    gap: 24px;
+    padding: 25px 0 75px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer > .wrapper {
+    padding: 75px 50px 75px 50px;
+}
+
+/*---- SHAPES SECTION ----*/
+.shapes .wrapper > div:nth-child(3n+3) {
+    width: 60px;
+    height: 60px;
+    background-color: #FFDDD2;
+}
+
+.shapes .wrapper > div:nth-child(3n+2) {
+    width: 60px;
+    height: 60px;
+    background-color: #D42C59;
+}
+
+.shapes .wrapper > div:nth-child(3n+1) {
+    width: 60px;
+    height: 60px;
+    background-color: #F2B100;
+    border-radius: 50%;
+}
+
+.shapes .row {
+    padding-bottom: 75px;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/*---- TIRAMISU SECTION ----*/
+
+.tiramisu {
+    padding: 75px 0 75px 0;
+}
+
+.columngrid {
+    padding: 25px;
+}
+
+.columnspan {
+    max-width: 685px;
+    padding-top: 25px;
+}
+
+.tiramisu > .wrapper > .row {
+    border: 16px solid #FFDDD2;
+}
+
+.gummibears {
+    padding: 30px 20px 0 0;
+    justify-content: end;
+}
+
+/*--------------------------------------------------------------
+    7.0 - UTILITY
+-------------------------------------------------------------- */
+/* only classes that could be used on 'any' element should go here  */ 
+
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+.circle {
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+}
+
+.box {
+    max-width: 335px;
+    height: 45px;
+}
+
+.border__4 {
+    border: 4px solid #FFDDD2;
+}
+
+/*----- Media Queries-----*/ 
+/*----- Laptop-----*/ 
+@media only screen and (max-width: 1100px) {
+
+}
+
+/*----- Tablet-----*/ 
+@media only screen and (max-width: 670px) {
+    .wrapper {
+        padding: 0 30px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tiramisu > .wrapper > .row {
+        flex-wrap: wrap;
+        padding: 25px;
+    }
+
+    .gummibears {
+        justify-content: start;
+    }
+
+    .hero .bg__sorbet {
+        padding: 20px;
+    }
+
+    .shapes > .wrapper > div:nth-child(n+25) {
+        display: none;
+    }
+
+    footer > .wrapper > .row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul {
+        background-color: #F2B100;
+        padding: 25px 0 25px 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    nav > div {
+        padding-left: 90px;
+        width: 100%;
+    }
+
+    .circlerow {
+        justify-content: center;
+    }
+}
+
+/*----- Mobile-----*/ 
+@media only screen and (max-width: 480px) {
+    .txtsize__22 {
+        font-size: 1.25rem;
+    }
+
+    .wrapper {
+        padding: 0 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .shapes > .wrapper > div:nth-child(n+13) {
+        display: none;
+    }
+
+    nav > div {
+        padding-left: 45px;
+        width: 100%;
+    }
+
+    .columngrid {
+        width: 290px;
+        padding: 0 0 0 8px;
+    }
+
+    .gummibears {
+        padding: 0;
+    }
+    
+}
+
